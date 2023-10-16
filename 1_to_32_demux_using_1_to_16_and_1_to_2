@@ -1,0 +1,33 @@
+//100 days of RTL//
+
+//Abilash P//
+
+//1:32 Demultiplexer using 1:16 and 1:2//
+
+module demux_1_to_32 (D, S0, S1, S2, S3, S4, Y);
+
+input  D, S4, S3, S2, S1, S0;
+output [31:0]Y;
+
+wire [15:0]W;
+
+demux_1_to_16 DEM0 (.D(D), .S3(S4), .S2(S3), .S1(S2), .S0(S1), .Y(W));
+
+demux_1_to_2 DEMA (.D(W[0]),  .S0(S0), .Y0(Y[0]),  .Y1(Y[1]));
+demux_1_to_2 DEMB (.D(W[1]),  .S0(S0), .Y0(Y[2]),  .Y1(Y[3]));
+demux_1_to_2 DEMC (.D(W[2]),  .S0(S0), .Y0(Y[4]),  .Y1(Y[5]));
+demux_1_to_2 DEMD (.D(W[3]),  .S0(S0), .Y0(Y[6]),  .Y1(Y[7]));
+demux_1_to_2 DEME (.D(W[4]),  .S0(S0), .Y0(Y[8]),  .Y1(Y[9]));
+demux_1_to_2 DEMF (.D(W[5]),  .S0(S0), .Y0(Y[10]), .Y1(Y[11]));
+demux_1_to_2 DEMG (.D(W[6]),  .S0(S0), .Y0(Y[12]), .Y1(Y[13]));
+demux_1_to_2 DEMH (.D(W[7]),  .S0(S0), .Y0(Y[14]), .Y1(Y[15]));
+demux_1_to_2 DEMI (.D(W[8]),  .S0(S0), .Y0(Y[16]), .Y1(Y[17]));
+demux_1_to_2 DEMJ (.D(W[9]),  .S0(S0), .Y0(Y[18]), .Y1(Y[19]));
+demux_1_to_2 DEMK (.D(W[10]), .S0(S0), .Y0(Y[20]), .Y1(Y[21]));
+demux_1_to_2 DEML (.D(W[11]), .S0(S0), .Y0(Y[22]), .Y1(Y[23]));
+demux_1_to_2 DEMM (.D(W[12]), .S0(S0), .Y0(Y[24]), .Y1(Y[25]));
+demux_1_to_2 DEMN (.D(W[13]), .S0(S0), .Y0(Y[26]), .Y1(Y[27]));
+demux_1_to_2 DEMO (.D(W[14]), .S0(S0), .Y0(Y[28]), .Y1(Y[29]));
+demux_1_to_2 DEMP (.D(W[15]), .S0(S0), .Y0(Y[30]), .Y1(Y[31]));
+
+endmodule
