@@ -1,0 +1,54 @@
+//100 days of RTL//
+
+//Abilash P//
+
+//1:32 Demultiplexer in gate flow or structural modeling//
+
+module demux_1_to_32 (D, S0, S1, S2, S3, S4, Y);
+
+input  D, S4, S3, S2, S1, S0;
+output [31:0]Y;
+
+wire P0, P1, P2, P3, P4;
+
+not n1 (P0, S0);
+not n2 (P1, S1);
+not n3 (P2, S2);
+not n4 (P3, S3);
+not n5 (P4, S4);
+
+and a1 (Y[0],  P4, P3, P2, P1, P0, D);
+and a2 (Y[1],  P4, P3, P2, P1, S0, D);
+and a3 (Y[2],  P4, P3, P2, S1, P0, D);
+and a4 (Y[3],  P4, P3, P2, S1, S0, D);
+and a5 (Y[4],  P4, P3, S2, P1, P0, D);
+and a6 (Y[5],  P4, P3, S2, P1, S0, D);
+and a7 (Y[6],  P4, P3, S2, S1, P0, D);
+and a8 (Y[7],  P4, P3, S2, S1, S0, D); 
+and a9 (Y[8],  P4, S3, P2, P1, P0, D);
+and aA (Y[9],  P4, S3, P2, P1, S0, D);
+and aB (Y[10], P4, S3, P2, S1, P0, D);
+and aC (Y[11], P4, S3, P2, S1, S0, D);
+and aD (Y[12], P4, S3, S2, P1, P0, D);
+and aE (Y[13], P4, S3, S2, P1, S0, D);
+and aF (Y[14], P4, S3, S2, S1, P0, D);
+and aG (Y[15], P4, S3, S2, S1, S0, D); 
+
+and w1 (Y[16], S4, P3, P2, P1, P0, D);
+and w2 (Y[17], S4, P3, P2, P1, S0, D);
+and w3 (Y[18], S4, P3, P2, S1, P0, D);
+and w4 (Y[19], S4, P3, P2, S1, S0, D);
+and w5 (Y[20], S4, P3, S2, P1, P0, D);
+and w6 (Y[21], S4, P3, S2, P1, S0, D); 
+and w7 (Y[22], S4, P3, S2, S1, P0, D);
+and w8 (Y[23], S4, P3, S2, S1, S0, D);
+and w9 (Y[24], S4, S3, P2, P1, P0, D);
+and wA (Y[25], S4, S3, P2, P1, S0, D);
+and wB (Y[26], S4, S3, P2, S1, P0, D);
+and wC (Y[27], S4, S3, P2, S1, S0, D);
+and wD (Y[28], S4, S3, S2, P1, P0, D);
+and wE (Y[29], S4, S3, S2, P1, S0, D);
+and wF (Y[30], S4, S3, S2, S1, P0, D);
+and wG (Y[31], S4, S3, S2, S1, S0, D);
+
+endmodule
