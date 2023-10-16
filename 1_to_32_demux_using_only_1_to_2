@@ -1,0 +1,53 @@
+//100 days of RTL//
+
+//Abilash P//
+
+//1:32 Demultiplexer using 1:2//
+
+module demux_1_to_32 (D, S0, S1, S2, S3, S4, Y);
+
+input  D, S4, S3, S2, S1, S0;
+output [31:0]Y;
+
+wire x1, x2;
+wire y1, y2, y3, y4;
+wire z1, z2, z3, z4, z5, z6, z7, z8;
+wire a1, a2, a3, a4, a5, a6, a7, a8, a9, aA, aB, aC, aD, aE, aF, aG;
+
+demux_1_to_2 DEM0 (.D(D),  .S0(S4), .Y0(x1), .Y1(x2));
+
+demux_1_to_2 DEM1 (.D(x1), .S0(S3), .Y0(y1), .Y1(y2));
+demux_1_to_2 DEM2 (.D(x2), .S0(S3), .Y0(y3), .Y1(y4));
+
+demux_1_to_2 DEM3 (.D(y1), .S0(S2), .Y0(z1), .Y1(z2));
+demux_1_to_2 DEM4 (.D(y2), .S0(S2), .Y0(z3), .Y1(z4));
+demux_1_to_2 DEM5 (.D(y3), .S0(S2), .Y0(z5), .Y1(z6));
+demux_1_to_2 DEM6 (.D(y4), .S0(S2), .Y0(z7), .Y1(z8));
+
+demux_1_to_2 DEM7 (.D(z1), .S0(S1), .Y0(a1), .Y1(a2));
+demux_1_to_2 DEM8 (.D(z2), .S0(S1), .Y0(a3), .Y1(a4));
+demux_1_to_2 DEM9 (.D(z3), .S0(S1), .Y0(a5), .Y1(a6));
+demux_1_to_2 DEMA (.D(z4), .S0(S1), .Y0(a7), .Y1(a8));
+demux_1_to_2 DEMB (.D(z5), .S0(S1), .Y0(a9), .Y1(aA));
+demux_1_to_2 DEMC (.D(z6), .S0(S1), .Y0(aB), .Y1(aC));
+demux_1_to_2 DEMD (.D(z7), .S0(S1), .Y0(aD), .Y1(aE));
+demux_1_to_2 DEME (.D(z8), .S0(S1), .Y0(aF), .Y1(aG));
+
+demux_1_to_2 DEMF (.D(a1), .S0(S0), .Y0(Y[0]), .Y1(Y[1]));
+demux_1_to_2 DEMG (.D(a2), .S0(S0), .Y0(Y[2]), .Y1(Y[3]));
+demux_1_to_2 DEMH (.D(a3), .S0(S0), .Y0(Y[4]), .Y1(Y[5]));
+demux_1_to_2 DEMI (.D(a4), .S0(S0), .Y0(Y[6]), .Y1(Y[7]));
+demux_1_to_2 DEMJ (.D(a5), .S0(S0), .Y0(Y[8]), .Y1(Y[9]));
+demux_1_to_2 DEMK (.D(a6), .S0(S0), .Y0(Y[10]), .Y1(Y[11]));
+demux_1_to_2 DEML (.D(a7), .S0(S0), .Y0(Y[12]), .Y1(Y[13]));
+demux_1_to_2 DEMM (.D(a8), .S0(S0), .Y0(Y[14]), .Y1(Y[15]));
+demux_1_to_2 DEMN (.D(a9), .S0(S0), .Y0(Y[16]), .Y1(Y[17]));
+demux_1_to_2 DEMO (.D(aA), .S0(S0), .Y0(Y[18]), .Y1(Y[19]));
+demux_1_to_2 DEMP (.D(aB), .S0(S0), .Y0(Y[20]), .Y1(Y[21]));
+demux_1_to_2 DEMQ (.D(aC), .S0(S0), .Y0(Y[22]), .Y1(Y[23]));
+demux_1_to_2 DEMR (.D(aD), .S0(S0), .Y0(Y[24]), .Y1(Y[25]));
+demux_1_to_2 DEMS (.D(aE), .S0(S0), .Y0(Y[26]), .Y1(Y[27]));
+demux_1_to_2 DEMT (.D(aF), .S0(S0), .Y0(Y[28]), .Y1(Y[29]));
+demux_1_to_2 DEMU (.D(aG), .S0(S0), .Y0(Y[30]), .Y1(Y[31]));
+
+endmodule
