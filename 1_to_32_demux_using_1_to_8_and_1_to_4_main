@@ -1,0 +1,25 @@
+//100 days of RTL//
+
+//Abilash P//
+
+//1:32 Demultiplexer using 1:8 and 1:4//
+
+module demux_1_to_32 (D, S0, S1, S2, S3, S4, Y);
+
+input  D, S4, S3, S2, S1, S0;
+output [31:0]Y;
+
+wire [7:0]W;
+
+demux_1_to_8 DEM0 (.D(D), .S2(S4), .S1(S3), .S0(S2), .Y(W));
+
+demux_1_to_4 DEM1 (.D(W[0]), .S1(S1), .S0(S0), .Y3(Y[3]),  .Y2(Y[2]),  .Y1(Y[1]),  .Y0(Y[0]));
+demux_1_to_4 DEM2 (.D(W[1]), .S1(S1), .S0(S0), .Y3(Y[7]),  .Y2(Y[6]),  .Y1(Y[5]),  .Y0(Y[4]));
+demux_1_to_4 DEM3 (.D(W[2]), .S1(S1), .S0(S0), .Y3(Y[11]), .Y2(Y[10]), .Y1(Y[9]),  .Y0(Y[8]));
+demux_1_to_4 DEM4 (.D(W[3]), .S1(S1), .S0(S0), .Y3(Y[15]), .Y2(Y[14]), .Y1(Y[13]), .Y0(Y[12]));
+demux_1_to_4 DEM5 (.D(W[4]), .S1(S1), .S0(S0), .Y3(Y[19]), .Y2(Y[18]), .Y1(Y[17]), .Y0(Y[16]));
+demux_1_to_4 DEM6 (.D(W[5]), .S1(S1), .S0(S0), .Y3(Y[23]), .Y2(Y[22]), .Y1(Y[21]), .Y0(Y[20]));
+demux_1_to_4 DEM7 (.D(W[6]), .S1(S1), .S0(S0), .Y3(Y[27]), .Y2(Y[26]), .Y1(Y[25]), .Y0(Y[24]));
+demux_1_to_4 DEM8 (.D(W[7]), .S1(S1), .S0(S0), .Y3(Y[31]), .Y2(Y[30]), .Y1(Y[29]), .Y0(Y[28]));
+
+endmodule
